@@ -1,1 +1,1 @@
-# polymarket
+# poliquant
