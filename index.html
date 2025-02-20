@@ -1,30 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poliquant</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoliQuant - Quantitative Reports</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Garamond', serif; /* Garamond for a classic, elegant look */
+      background-color: #f9f9f9; /* Light gray background for a soft, print-like feel */
+      color: #333; /* Dark gray text for better contrast */
+      line-height: 1.8; /* Improved readability with a comfortable line height */
+      padding: 20px;
+      min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #2c3e50; /* Deep blue background inspired by WSJ */
+      color: #fff; /* White text for contrast */
+      text-align: center; /* Center-align text */
+      padding: 30px 20px; /* Add padding for spacing */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+      border-bottom: 4px solid #d4af37; /* Gold accent border inspired by WSJ */
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem; /* Large font size for the main heading */
+      font-weight: 600; /* Semi-bold text for emphasis */
+      margin-bottom: 10px; /* Space below the heading */
+      text-transform: uppercase; /* Uppercase text for a modern, editorial look */
+      letter-spacing: 2px; /* Increase letter spacing for better readability */
+    }
+
+    header img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+    }
+
+    header p {
+      font-size: 1.3rem; /* Slightly larger font size for the subtitle */
+      margin-top: 10px; /* Space above the paragraph */
+      font-weight: 400; /* Normal font weight for a subtle contrast */
+      line-height: 1.4; /* Slightly tighter line height for compact text */
+      font-style: italic; /* Italicize for a sophisticated touch */
+      color: #d4af37; /* Gold color for a WSJ-inspired accent */
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #fff; /* White background for contrast */
+      margin: 20px 0;
+      border-radius: 8px; /* Rounded corners for a modern look */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    .hero h2 {
+      font-size: 2.5rem; /* Large font size for the hero heading */
+      font-weight: bold; /* Bold text for emphasis */
+      margin-bottom: 20px; /* Space below the heading */
+      color: #2c3e50; /* Deep blue for headings */
+    }
+
+    .hero p {
+      font-size: 1.2rem; /* Slightly larger font size for paragraphs */
+      color: #555; /* Medium gray text for readability */
+      margin-bottom: 30px; /* Space below paragraphs */
+    }
+
+    .hero .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .hero button {
+      padding: 12px 25px; /* Add padding for a comfortable click area */
+      font-size: 1.1rem; /* Slightly larger font size */
+      background-color: #2c3e50; /* Deep blue background for buttons */
+      color: #fff; /* White text for contrast */
+      border: none; /* Remove default border */
+      cursor: pointer; /* Pointer cursor on hover */
+      border-radius: 5px; /* Rounded corners for a modern look */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+
+    .hero button:hover {
+      background-color: #1a252f; /* Darker blue on hover */
+      transform: scale(1.05); /* Slight scale-up effect on hover */
+    }
+
+    .hero button:active {
+      transform: scale(0.95); /* Slight scale-down effect on click */
+    }
+
+    /* Article Highlights */
+    .highlights {
+      margin: 40px 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+      background-color: #fff; /* White background for contrast */
+      border-radius: 8px; /* Rounded corners for a modern look */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    .highlights h3 {
+      font-size: 2rem; /* Large font size for section headings */
+      margin-bottom: 20px; /* Space below the heading */
+      text-align: center; /* Center-align text */
+      color: #2c3e50; /* Green color for a WSJ-inspired accent */
+    }
+
+    .highlights ul {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0;
+    }
+
+    .highlights li {
+      margin-bottom: 10px; /* Space between list items */
+      font-size: 1.1rem; /* Slightly larger font size for list items */
+    }
+
+    .highlights li a {
+      color: #333; /* Dark gray text for readability */
+      text-decoration: none; /* Remove default underline */
+    }
+
+    .highlights li a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #2c3e50; /* Deep blue background for the footer */
+      color: #fff; /* White text for contrast */
+      text-align: center; /* Center-align text */
+      padding: 20px 0; /* Add padding for spacing */
+      margin-top: 40px; /* Space above the footer */
+      font-size: 0.9rem; /* Smaller font size for footer text */
+      border-top: 4px solid #d4af37; /* Gold accent border inspired by WSJ */
+    }
+
+    footer a {
+      color: #d4af37; /* Gold color for links */
+      text-decoration: none; /* Remove default underline */
+    }
+
+    footer a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+
+    footer p {
+      color: #d4af37; /* Gold color for text */
+    }
+
+    /* Responsive design adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem; /* Smaller font size for smaller screens */
+      }
+
+      header p {
+        font-size: 1.1rem; /* Smaller font size for smaller screens */
+      }
+
+      .hero h2 {
+        font-size: 2rem; /* Smaller font size for hero heading */
+      }
+
+      .hero button {
+        width: 100%; /* Full-width buttons on smaller screens */
+        padding: 15px 20px; /* Larger padding for easier tapping */
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Poliquant</h1>
-        <p>Your go-to site for quantitative polymarket analysis.</p>
-    </header>
-    <main>
-        <section>
-            <h2>Latest Insights</h2>
-            <p>We analyze data trends to help you make informed decisions in the world of polymarkets.</p>
-        </section>
-        <section>
-            <h2>Subscribe for Premium Access</h2>
-            <p>Get full access to exclusive analysis and reports.</p>
-            <button>Subscribe Now</button>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 Poliquant. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+  <!-- Header -->
+  <header>
+    <img src="images/imageedit_3_8462670694.png" alt="PoliQuant Logo">
+    <h1>PoliQuant</h1>
+    <p>Your Premier Source for Quantitative Analysis on Polymarket Events</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Quantitative Reports for Market Leaders</h2>
+    <p>Explore cutting-edge insights, detailed data analysis, and the latest market trends, delivered weekly to empower your decisions.</p>
+    <div class="button-container">
+      <button onclick="window.location.href='articles.html'">Read Reports</button>
+      <button onclick="window.location.href='subscribe.html'">Subscribe Now</button>
+    </div>
+  </section>
+
+  <!-- Article Highlights -->
+  <section class="highlights">
+    <h3>Featured Articles</h3>
+    <ul>
+      <li><a href="#">Understanding Market Volatility: Insights from Recent Trends</a></li>
+      <li><a href="#">The Future of Prediction Markets: Data-Driven Perspectives</a></li>
+      <li><a href="#">How Quantitative Models Shape Modern Trading Strategies</a></li>
+      <li><a href="#">Weekly Analysis: Key Drivers of Market Movements</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PoliQuant | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
 </body>
 </html>
