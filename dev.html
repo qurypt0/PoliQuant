@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PoliQuant Dev Page - Add and manage articles easily.">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <title>PoliQuant Dev Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==================== General Reset ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      color: #2c3e50;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    form {
+      margin-bottom: 40px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+    }
+
+    .article-list {
+      margin-top: 40px;
+    }
+
+    .article {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .article h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .article p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .article a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .article a:hover {
+      color: #b08d2b;
+    }
+  </style>
+</head>
+<body>
+  <!-- Password Protection -->
+  <div id="password-protection">
+    <h1>Dev Access Only</h1>
+    <p>Enter the password to access this page:</p>
+    <input type="password" id="password-input" placeholder="Enter password">
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <!-- Dev Page Content (Hidden by Default) -->
+  <div id="dev-content" style="display: none;">
+    <h1>PoliQuant Dev Page</h1>
+    <p>Add and manage articles easily.</p>
+
+    <!-- Add Article Form -->
+    <form id="add-article-form">
+      <label for="title">Article Title:</label>
+      <input type="text" id="title" placeholder="Enter article title" required>
+
+      <label for="description">Article Description:</label>
+      <textarea id="description" placeholder="Enter article description" rows="4" required></textarea>
+
+      <label for="link">Article Link:</label>
+      <input type="text" id="link" placeholder="Enter article link" required>
+
+      <button type="submit">Add Article</button>
+    </form>
+
+    <!-- Article List -->
+    <div class="article-list" id="article-list">
+      <h2>Articles</h2>
+      <!-- Articles will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Password Protection
+    function checkPassword() {
+      const password = document.getElementById('password-input').value;
+      if (password === 'dev123') { // Replace 'dev123' with your desired password
+        document.getElementById('password-protection').style.display = 'none';
+        document.getElementById('dev-content').style.display = 'block';
+        loadArticles(); // Load articles when access is granted
+      } else {
+        alert('Incorrect password. Access denied.');
+      }
+    }
+
+    // Load Articles from LocalStorage
+    function loadArticles() {
+      const articles = JSON.parse(localStorage.getItem('articles')) || [];
+      const articleList = document.getElementById('article-list');
+      articleList.innerHTML = '<h2>Articles</h2>'; // Reset the list
+
+      articles.forEach((article, index) => {
+        const articleDiv = document.createElement('div');
+        articleDiv.className = 'article';
+        articleDiv.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <a href="${article.link}" target="_blank">Read More</a>
+          <button onclick="deleteArticle(${index})">Delete</button>
+        `;
+        articleList.appendChild(articleDiv);
+      });
+    }
+
+    // Add Article
+    document.getElementById('add-article-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const link = document.getElementById('link').value;
+
+      const article = { title, description, link };
+      const articles = JSON.parse(localStorage.getItem('articles')) || [];
+      articles.push(article);
+      localStorage.setItem('articles', JSON.stringify(articles));
+
+      loadArticles(); // Refresh the article list
+      document.getElementById('add-article-form').reset(); // Clear the form
+    });
+
+    // Delete Article
+    function deleteArticle(index) {
+      const articles = JSON.parse(localStorage.getItem('articles')) || [];
+      articles.splice(index, 1); // Remove the article at the specified index
+      localStorage.setItem('articles', JSON.stringify(articles));
+      loadArticles(); // Refresh the article list
+    }
+
+    // Initial Load (if already authenticated)
+    if (localStorage.getItem('authenticated')) {
+      document.getElementById('password-protection').style.display = 'none';
+      document.getElementById('dev-content').style.display = 'block';
+      loadArticles();
+    }
+  </script>
+</body>
+</html>

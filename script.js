@@ -27,9 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     const target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-      });
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
@@ -253,121 +251,6 @@ const showToast = (message, type) => {
   }, 3000);
 };
 
-// ==================== Modal Popups ====================
-const setupModals = () => {
-  const modalTriggers = document.querySelectorAll('[data-modal-target]');
-  const modals = document.querySelectorAll('.modal');
-  const modalCloses = document.querySelectorAll('[data-close-modal]');
-
-  modalTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const modal = document.querySelector(trigger.dataset.modalTarget);
-      if (modal) {
-        modal.classList.add('active');
-      }
-    });
-  });
-
-  modalCloses.forEach((close) => {
-    close.addEventListener('click', () => {
-      const modal = close.closest('.modal');
-      if (modal) {
-        modal.classList.remove('active');
-      }
-    });
-  });
-
-  modals.forEach((modal) => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-  });
-};
-
-// Initialize modals
-setupModals();
-
-// ==================== Custom Scrollbar ====================
-const setupCustomScrollbar = () => {
-  const style = document.createElement('style');
-  style.textContent = `
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-  `;
-  document.head.appendChild(style);
-};
-
-// Initialize custom scrollbar
-setupCustomScrollbar();
-
-// ==================== Progress Bar ====================
-const setupProgressBar = () => {
-  const progressBar = document.createElement('div');
-  progressBar.classList.add('progress-bar');
-  document.body.appendChild(progressBar);
-
-  window.addEventListener('scroll', () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-    progressBar.style.width = `${progress}%`;
-  });
-};
-
-// Initialize progress bar
-setupProgressBar();
-
-// ==================== Parallax Effects ====================
-const setupParallax = () => {
-  const parallaxElements = document.querySelectorAll('.parallax');
-
-  window.addEventListener('scroll', () => {
-    parallaxElements.forEach((element) => {
-      const speed = parseFloat(element.dataset.speed) || 0.5;
-      const offset = window.scrollY * speed;
-      element.style.transform = `translateY(${offset}px)`;
-    });
-  });
-};
-
-// Initialize parallax effects
-setupParallax();
-
-// ==================== Accessibility Improvements ====================
-const improveAccessibility = () => {
-  // Add ARIA labels to buttons
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach((button) => {
-    if (!button.getAttribute('aria-label')) {
-      button.setAttribute('aria-label', button.textContent);
-    }
-  });
-
-  // Manage focus for modals
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach((modal) => {
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal.classList.remove('active');
-      }
-    });
-  });
-};
-
-// Initialize accessibility improvements
-improveAccessibility();
-
 // ==================== Initialize All Features ====================
 window.addEventListener('DOMContentLoaded', () => {
   loadArticles();
@@ -376,9 +259,4 @@ window.addEventListener('DOMContentLoaded', () => {
   lazyLoadImages();
   setupResponsiveNav();
   validateForm();
-  setupModals();
-  setupCustomScrollbar();
-  setupProgressBar();
-  setupParallax();
-  improveAccessibility();
 });
