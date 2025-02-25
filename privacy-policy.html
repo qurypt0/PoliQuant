@@ -16,61 +16,62 @@
     }
 
     html {
-      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Georgia', serif; /* Classic serif font */
-      background-color: #f9f9f9; /* Light background for light mode */
-      color: #333; /* Dark text for contrast */
-      line-height: 1.8;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-      transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     /* ==================== Typography ==================== */
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Times New Roman', serif; /* Classic serif font for headings */
+      font-family: 'Times New Roman', serif;
       font-weight: 600;
-      color: #2c3e50; /* Navy blue for headings */
+      color: #2c3e50;
       letter-spacing: -0.5px;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       line-height: 1.2;
     }
 
     h2 {
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
 
     h3 {
-      font-size: 2.2rem;
+      font-size: 1.5rem;
     }
 
     p {
-      font-size: 1.1rem;
-      color: #555; /* Slightly lighter gray for paragraphs */
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1.2rem;
     }
 
     a {
-      color: #d4af37; /* Gold for links */
+      color: #d4af37;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     a:hover {
-      color: #b08d2b; /* Darker gold on hover */
+      color: #b08d2b;
     }
 
     /* ==================== Header ==================== */
     header {
-      background: linear-gradient(135deg, #2c3e50, #1a252f); /* Navy blue gradient */
+      background: linear-gradient(135deg, #2c3e50, #1a252f);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
-      border-bottom: 4px solid #d4af37; /* Gold accent */
+      border-bottom: 4px solid #d4af37;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       position: relative;
     }
@@ -81,20 +82,20 @@
       left: 20px;
       width: 80px;
       height: auto;
-      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); /* Gold glow effect */
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
     }
 
     header h1 {
       margin-bottom: 10px;
       text-transform: uppercase;
       font-weight: 700;
-      color: #d4af37; /* Gold for the main heading */
+      color: #d4af37;
     }
 
     header p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-style: italic;
-      color: #d4af37; /* Gold for the subtitle */
+      color: #d4af37;
     }
 
     /* ==================== Navigation Menu ==================== */
@@ -114,15 +115,15 @@
     }
 
     nav a:hover {
-      color: #d4af37; /* Gold on hover */
+      color: #d4af37;
     }
 
     /* ==================== Privacy Policy Content ==================== */
     .privacy-policy {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 60px auto;
       padding: 40px 20px;
-      background: #ffffff; /* White background */
+      background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
@@ -130,13 +131,13 @@
     .privacy-policy h2 {
       text-align: center;
       margin-bottom: 40px;
-      color: #2c3e50; /* Navy blue for section heading */
+      color: #2c3e50;
     }
 
     .privacy-policy h3 {
       margin-top: 30px;
       margin-bottom: 15px;
-      color: #2c3e50; /* Navy blue for subheadings */
+      color: #2c3e50;
     }
 
     .privacy-policy p {
@@ -154,38 +155,38 @@
 
     /* ==================== Footer ==================== */
     footer {
-      background: linear-gradient(135deg, #2c3e50, #1a252f); /* Navy blue gradient */
+      background: linear-gradient(135deg, #2c3e50, #1a252f);
       color: #fff;
       text-align: center;
       padding: 40px 20px;
       margin-top: 60px;
-      border-top: 4px solid #d4af37; /* Gold accent */
+      border-top: 4px solid #d4af37;
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     }
 
     footer p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin-bottom: 10px;
     }
 
     footer a {
-      color: #d4af37; /* Gold for links */
+      color: #d4af37;
       font-weight: 600;
     }
 
     footer a:hover {
-      color: #b08d2b; /* Darker gold on hover */
+      color: #b08d2b;
     }
 
     /* ==================== Dark Mode Styles ==================== */
     body.dark-mode {
-      background-color: #0a0a0a; /* Dark background */
-      color: #e0e0e0; /* Light text */
+      background-color: #0a0a0a;
+      color: #e0e0e0;
     }
 
     body.dark-mode header {
       background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-      border-bottom: 4px solid #d4af37; /* Gold accent */
+      border-bottom: 4px solid #d4af37;
     }
 
     body.dark-mode .privacy-policy {
@@ -195,7 +196,7 @@
 
     body.dark-mode footer {
       background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-      border-top: 4px solid #d4af37; /* Gold accent */
+      border-top: 4px solid #d4af37;
     }
 
     /* ==================== Dark Mode Toggle Button ==================== */
@@ -203,18 +204,18 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #2c3e50; /* Navy blue */
+      background-color: #2c3e50;
       color: #fff;
       border: none;
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
       transition: background-color 0.3s, transform 0.2s;
     }
 
     .dark-mode-toggle:hover {
-      background-color: #1a252f; /* Darker navy blue */
+      background-color: #1a252f;
       transform: scale(1.05);
     }
 
@@ -225,15 +226,15 @@
     /* ==================== Responsive Design ==================== */
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.5rem;
-      }
-
-      h2 {
         font-size: 2rem;
       }
 
-      h3 {
+      h2 {
         font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.4rem;
       }
 
       .privacy-policy {
@@ -260,44 +261,40 @@
   <!-- Privacy Policy Content -->
   <section class="privacy-policy">
     <h2>Privacy Policy</h2>
-    <p>At PoliQuant, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+    <p>This Privacy Policy ("Policy") governs the collection, use, disclosure, and protection of personally identifiable information ("Personal Data") and any other data obtained from individuals ("Users") who subscribe to, access, or otherwise interact with our financial news subscription service ("Service").</p>
 
     <h3>Information We Collect</h3>
-    <p>We may collect the following types of information:</p>
-    <ul>
-      <li><strong>Personal Information:</strong> Name, email address, and other contact details you provide when subscribing to our newsletter or contacting us.</li>
-      <li><strong>Usage Data:</strong> Information about how you interact with our website, such as IP address, browser type, and pages visited.</li>
-      <li><strong>Cookies:</strong> We use cookies to enhance your experience on our website. You can disable cookies in your browser settings if you prefer.</li>
-    </ul>
+    <p>In the course of providing the Service, we may collect certain categories of Personal Data, which may include, but is not limited to, full name, contact information such as email address and phone number, payment information, billing details, and any additional data voluntarily provided by Users through their interactions with the Service. Furthermore, we may gather analytical or usage-based data related to the access and engagement of the Service for operational and performance-enhancing purposes.</p>
 
     <h3>How We Use Your Information</h3>
-    <p>We use your information to:</p>
+    <p>The collected information may be utilized for multiple purposes, including but not limited to:</p>
     <ul>
-      <li>Provide and improve our services.</li>
-      <li>Send you newsletters and updates (if you subscribe).</li>
-      <li>Analyze website usage to enhance user experience.</li>
-      <li>Respond to your inquiries and feedback.</li>
+      <li>Facilitating the provision, maintenance, and improvement of the Service;</li>
+      <li>Communicating with Users regarding their subscriptions, updates, or administrative notices;</li>
+      <li>Ensuring compliance with applicable laws, regulations, and contractual obligations;</li>
+      <li>Conducting internal research, statistical analysis, and monitoring of service performance;</li>
+      <li>Preventing fraudulent activity, security breaches, or unauthorized access;</li>
+      <li>Enhancing user experience through personalized recommendations and improvements.</li>
     </ul>
 
-    <h3>Data Security</h3>
-    <p>We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+    <h3>Data Sharing and Disclosure</h3>
+    <p>We may, from time to time, disclose certain categories of Personal Data to third-party entities, including but not limited to service providers, vendors, affiliates, and regulatory authorities, as required for the operation and enhancement of the Service. Such disclosure will be limited to the extent necessary and conducted in accordance with applicable data protection laws. We do not engage in the sale, lease, or monetization of Users' Personal Data for marketing purposes without express consent.</p>
 
-    <h3>Third-Party Services</h3>
-    <p>We may use third-party services (e.g., Google Analytics) to analyze website traffic. These services have their own privacy policies, and we encourage you to review them.</p>
+    <h3>Data Security and Retention</h3>
+    <p>We implement reasonable administrative, technical, and physical safeguards designed to protect Personal Data from unauthorized access, disclosure, alteration, or destruction. However, despite our best efforts, no security measure can guarantee absolute protection. Users acknowledge and accept the inherent risks associated with electronic data transmission and storage. Personal Data will be retained only for as long as necessary to fulfill the stated purposes of collection, comply with legal obligations, or as otherwise required by law.</p>
 
-    <h3>Your Rights</h3>
-    <p>You have the right to:</p>
+    <h3>User Rights and Choices</h3>
+    <p>Users may exercise certain rights concerning their Personal Data, including but not limited to:</p>
     <ul>
-      <li>Access and update your personal information.</li>
-      <li>Request deletion of your data.</li>
-      <li>Opt-out of receiving newsletters or marketing communications.</li>
+      <li>The right to access, update, or correct inaccuracies in their information;</li>
+      <li>The right to request the deletion or restriction of processing of Personal Data, subject to legal limitations;</li>
+      <li>The right to opt out of communications or data processing where applicable;</li>
+      <li>The right to withdraw previously granted consent where processing is based on such consent.</li>
     </ul>
+    <p>To exercise any of these rights, Users may contact us at <a href="mailto:privacy@poliquant.com">privacy@poliquant.com</a>. We will endeavor to respond to such requests in accordance with applicable legal requirements.</p>
 
-    <h3>Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and we encourage you to review it periodically.</p>
-
-    <h3>Contact Us</h3>
-    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@poliquant.com">privacy@poliquant.com</a>.</p>
+    <h3>Modifications and Updates</h3>
+    <p>We reserve the right to modify, amend, or update this Policy at any time and at our sole discretion. Any such changes will become effective upon posting of the updated Policy within the Service. Continued use of the Service following such modifications constitutes acceptance of the revised Policy.</p>
   </section>
 
   <!-- Footer -->
