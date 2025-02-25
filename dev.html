@@ -104,6 +104,21 @@
     .article a:hover {
       color: #b08d2b;
     }
+
+    .delete-button {
+      background-color: #ff4d4d;
+      margin-left: 10px;
+    }
+
+    .delete-button:hover {
+      background-color: #cc0000;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -124,12 +139,15 @@
     <form id="add-article-form">
       <label for="title">Article Title:</label>
       <input type="text" id="title" placeholder="Enter article title" required>
+      <div id="title-error" class="error-message"></div>
 
       <label for="description">Article Description:</label>
       <textarea id="description" placeholder="Enter article description" rows="4" required></textarea>
+      <div id="description-error" class="error-message"></div>
 
       <label for="link">Article Link:</label>
       <input type="text" id="link" placeholder="Enter article link" required>
+      <div id="link-error" class="error-message"></div>
 
       <button type="submit">Add Article</button>
     </form>
@@ -149,6 +167,7 @@
       if (password === 'dev123') { // Replace 'dev123' with your desired password
         document.getElementById('password-protection').style.display = 'none';
         document.getElementById('dev-content').style.display = 'block';
+        localStorage.setItem('authenticated', true); // Set authenticated flag
         loadArticles(); // Load articles when access is granted
       } else {
         alert('Incorrect password. Access denied.');
@@ -168,7 +187,7 @@
           <h3>${article.title}</h3>
           <p>${article.description}</p>
           <a href="${article.link}" target="_blank">Read More</a>
-          <button onclick="deleteArticle(${index})">Delete</button>
+          <button class="delete-button" onclick="deleteArticle(${index})">Delete</button>
         `;
         articleList.appendChild(articleDiv);
       });
@@ -177,17 +196,49 @@
     // Add Article
     document.getElementById('add-article-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      const title = document.getElementById('title').value;
-      const description = document.getElementById('description').value;
-      const link = document.getElementById('link').value;
 
+      // Clear previous error messages
+      document.getElementById('title-error').textContent = '';
+      document.getElementById('description-error').textContent = '';
+      document.getElementById('link-error').textContent = '';
+
+      // Get form values
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const link = document.getElementById('link').value.trim();
+
+      // Validate inputs
+      let isValid = true;
+
+      if (!title) {
+        document.getElementById('title-error').textContent = 'Title is required.';
+        isValid = false;
+      }
+
+      if (!description) {
+        document.getElementById('description-error').textContent = 'Description is required.';
+        isValid = false;
+      }
+
+      if (!link) {
+        document.getElementById('link-error').textContent = 'Link is required.';
+        isValid = false;
+      } else if (!isValidUrl(link)) {
+        document.getElementById('link-error').textContent = 'Please enter a valid URL.';
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Add article to localStorage
       const article = { title, description, link };
       const articles = JSON.parse(localStorage.getItem('articles')) || [];
       articles.push(article);
       localStorage.setItem('articles', JSON.stringify(articles));
 
-      loadArticles(); // Refresh the article list
-      document.getElementById('add-article-form').reset(); // Clear the form
+      // Refresh the article list and clear the form
+      loadArticles();
+      document.getElementById('add-article-form').reset();
     });
 
     // Delete Article
@@ -196,6 +247,16 @@
       articles.splice(index, 1); // Remove the article at the specified index
       localStorage.setItem('articles', JSON.stringify(articles));
       loadArticles(); // Refresh the article list
+    }
+
+    // Validate URL
+    function isValidUrl(url) {
+      try {
+        new URL(url);
+        return true;
+      } catch (error) {
+        return false;
+      }
     }
 
     // Initial Load (if already authenticated)
