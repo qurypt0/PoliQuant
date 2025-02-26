@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PoliQuant delivers cutting-edge quantitative analysis and insights on Polymarket events. Explore data-driven reports, market trends, and trading strategies.">
+  <meta name="keywords" content="PoliQuant, quantitative analysis, Polymarket, market trends, trading strategies">
+  <meta name="author" content="PoliQuant Team">
   <link rel="icon" href="images/favicon.png" type="image/png">
   <title>PoliQuant - Quantitative Analysis & Market Insights</title>
   <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
@@ -47,9 +49,9 @@
       letter-spacing: -0.5px;
     }
 
-    h1 { font-size: 3.5rem; line-height: 1.2; }
-    h2 { font-size: 2.8rem; }
-    h3 { font-size: 2.2rem; }
+    h1 { font-size: 3rem; line-height: 1.2; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 2rem; }
     p { font-size: 1.1rem; color: #555; }
     a { color: var(--secondary-color); text-decoration: none; transition: color var(--transition-speed); }
     a:hover { color: #b08d2b; }
@@ -79,7 +81,7 @@
 
     /* ==================== Hero Section ==================== */
     .hero {
-      padding: 100px 20px;
+      padding: 80px 20px;
       text-align: center;
       background: #ffffff;
       margin: 40px 0;
@@ -87,7 +89,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .hero h2 { font-size: 3rem; margin-bottom: 20px; color: var(--primary-color); }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
     .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; color: #555; }
     .hero .button-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
     .hero button {
@@ -246,6 +248,18 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+    /* ==================== Media Queries ==================== */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.8rem; }
+      .hero { padding: 60px 20px; }
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .why-choose .features { flex-direction: column; }
+      .why-choose .feature { max-width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -264,8 +278,8 @@
     <h2>Quantitative Reports for Market Leaders</h2>
     <p>Explore cutting-edge insights, detailed data analysis, and the latest market trends, delivered weekly to empower your decisions.</p>
     <div class="button-container">
-      <button onclick="window.location.href='login.html'">Log In</button>
-      <button onclick="window.location.href='signup.html'">Sign Up</button>
+      <button onclick="window.location.href='login.html'" aria-label="Log In">Log In</button>
+      <button onclick="window.location.href='signup.html'" aria-label="Sign Up">Sign Up</button>
     </div>
   </section>
 
@@ -305,10 +319,10 @@
   </footer>
 
   <!-- Dark Mode Toggle -->
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
 
   <!-- Scroll-to-Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to Top">↑</button>
 
   <!-- JavaScript -->
   <script>
