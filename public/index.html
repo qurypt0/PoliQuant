@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PoliQuant delivers cutting-edge quantitative analysis and insights on Polymarket events. Explore data-driven reports, market trends, and trading strategies.">
+  <meta name="keywords" content="PoliQuant, quantitative analysis, Polymarket, market trends, trading strategies">
+  <meta name="author" content="PoliQuant Team">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <title>PoliQuant - Quantitative Analysis & Market Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==================== CSS Variables ==================== */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #d4af37;
+      --background-light: #f9f9f9;
+      --text-light: #333;
+      --background-dark: #0a0a0a;
+      --text-dark: #e0e0e0;
+      --transition-speed: 0.3s;
+    }
+
+    /* ==================== General Reset ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: var(--background-light);
+      color: var(--text-light);
+      line-height: 1.8;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    /* ==================== Typography ==================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Times New Roman', serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      letter-spacing: -0.5px;
+    }
+
+    h1 { font-size: 3rem; line-height: 1.2; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 2rem; }
+    p { font-size: 1.1rem; color: #555; }
+    a { color: var(--secondary-color); text-decoration: none; transition: color var(--transition-speed); }
+    a:hover { color: #b08d2b; }
+
+    /* ==================== Header ==================== */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), #1a252f);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 4px solid var(--secondary-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+
+    header h1 { margin-bottom: 10px; text-transform: uppercase; font-weight: 700; color: var(--secondary-color); }
+    header p { font-size: 1.3rem; font-style: italic; color: var(--secondary-color); }
+
+    /* ==================== Hero Section ==================== */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: #ffffff;
+      margin: 40px 0;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
+    .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; color: #555; }
+    .hero .button-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .hero button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color var(--transition-speed), transform 0.2s ease;
+    }
+    .hero button:hover { background-color: #1a252f; transform: translateY(-5px); }
+    .hero button:active { transform: translateY(0); }
+
+    /* ==================== Article Highlights ==================== */
+    .highlights {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 40px 20px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .highlights h3 { text-align: center; margin-bottom: 40px; color: var(--primary-color); }
+    .highlights ul { list-style-type: none; padding: 0; max-width: 800px; margin: 0 auto; }
+    .highlights li {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: var(--background-light);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .highlights li:hover { transform: translateY(-10px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+    .highlights li a { color: var(--secondary-color); font-weight: 600; }
+    .highlights li a:hover { color: #b08d2b; }
+
+    /* ==================== Why Choose PoliQuant Section ==================== */
+    .why-choose {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 40px 20px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .why-choose h3 { text-align: center; margin-bottom: 40px; color: var(--primary-color); }
+    .why-choose .features { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .why-choose .feature {
+      background: var(--background-light);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      flex: 1 1 calc(33.333% - 40px);
+      max-width: 300px;
+    }
+    .why-choose .feature:hover { transform: translateY(-10px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+    .why-choose .feature h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--primary-color); }
+    .why-choose .feature p { font-size: 1rem; color: #555; }
+
+    /* ==================== Footer ==================== */
+    footer {
+      background: linear-gradient(135deg, var(--primary-color), #1a252f);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+      border-top: 4px solid var(--secondary-color);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p { font-size: 1rem; margin-bottom: 10px; }
+    footer a { color: var(--secondary-color); font-weight: 600; }
+    footer a:hover { color: #b08d2b; }
+
+    /* ==================== Dark Mode Toggle ==================== */
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color var(--transition-speed), transform 0.2s;
+    }
+
+    .dark-mode-toggle:hover { background-color: #1a252f; transform: scale(1.05); }
+    .dark-mode-toggle:active { transform: scale(0.95); }
+
+    /* ==================== Dark Mode Styles ==================== */
+    body.dark-mode {
+      background-color: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode header {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-bottom: 4px solid var(--secondary-color);
+    }
+
+    body.dark-mode .hero,
+    body.dark-mode .highlights,
+    body.dark-mode .why-choose {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode footer {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-top: 4px solid var(--secondary-color);
+    }
+
+    /* ==================== Scroll-to-Top Button ==================== */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color var(--transition-speed), transform 0.2s;
+      display: none;
+    }
+
+    .scroll-to-top:hover { background-color: #1a252f; transform: scale(1.05); }
+    .scroll-to-top:active { transform: scale(0.95); }
+
+    /* ==================== Loading Spinner ==================== */
+    .loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--secondary-color);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ==================== Media Queries ==================== */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.8rem; }
+      .hero { padding: 60px 20px; }
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .why-choose .features { flex-direction: column; }
+      .why-choose .feature { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Spinner -->
+  <div class="loading-spinner"></div>
+
+  <!-- Header -->
+  <header>
+    <img src="https://github.com/qurypt0/PoliQuant/blob/main/Images/loga.png?raw=true" alt="PoliQuant Logo">
+    <h1>PoliQuant</h1>
+    <p>Your Premier Source for Quantitative Analysis on Polymarket Events</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Quantitative Reports for Market Leaders</h2>
+    <p>Explore cutting-edge insights, detailed data analysis, and the latest market trends, delivered weekly to empower your decisions.</p>
+    <div class="button-container">
+      <button onclick="window.location.href='login.html'" aria-label="Log In">Log In</button>
+      <button onclick="window.location.href='signup.html'" aria-label="Sign Up">Sign Up</button>
+    </div>
+  </section>
+
+  <!-- Article Highlights -->
+  <section class="highlights">
+    <h3>Get Started</h3>
+    <ul>
+      <li><a href="login.html">Log In to Access Exclusive Reports</a></li>
+      <li><a href="signup.html">Sign Up for Weekly Insights</a></li>
+      <li><a href="signup.html">Join Our Community of Market Leaders</a></li>
+      <li><a href="login.html">Explore Data-Driven Analysis</a></li>
+    </ul>
+  </section>
+
+  <!-- Why Choose PoliQuant Section -->
+  <section class="why-choose">
+    <h3>Why Choose PoliQuant?</h3>
+    <div class="features">
+      <div class="feature">
+        <h4>Data-Driven Insights</h4>
+        <p>Our reports are built on rigorous quantitative analysis, ensuring accuracy and reliability.</p>
+      </div>
+      <div class="feature">
+        <h4>Expert Analysis</h4>
+        <p>Our team of analysts brings years of experience in market trends and predictive modeling.</p>
+      </div>
+      <div class="feature">
+        <h4>Weekly Updates</h4>
+        <p>Stay ahead with weekly reports that highlight the latest trends and opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PoliQuant | <a href="privacy-policy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
+
+  <!-- Scroll-to-Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to Top">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Scroll-to-Top Button
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Show Scroll-to-Top Button
+    window.onscroll = function() {
+      const scrollToTopButton = document.querySelector('.scroll-to-top');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopButton.style.display = 'block';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    };
+
+    // Simulate Loading Spinner
+    window.onload = function() {
+      const loadingSpinner = document.querySelector('.loading-spinner');
+      loadingSpinner.style.display = 'block';
+      setTimeout(() => {
+        loadingSpinner.style.display = 'none';
+      }, 2000); // Simulate 2 seconds loading time
+    };
+  </script>
+</body>
+</html>
