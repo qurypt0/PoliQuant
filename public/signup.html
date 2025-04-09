@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign up for PoliQuant to access exclusive quantitative analysis and market insights.">
-  <link rel="icon" href="images/favicon.png" type="image/png">
-  <title>Sign Up - PoliQuant</title>
+  <meta name="description" content="Sign up for PoliQuant - Quantitative Analysis & Market Insights">
+  <title>PoliQuant - Sign Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* ==================== CSS Variables ==================== */
@@ -32,86 +31,153 @@
       color: var(--text-light);
       line-height: 1.8;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       min-height: 100vh;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
     }
 
-    /* ==================== Signup Container ==================== */
+    /* ==================== Header ==================== */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), #1a252f);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 4px solid var(--secondary-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+
+    header h1 { 
+      margin-bottom: 10px; 
+      text-transform: uppercase; 
+      font-weight: 700; 
+      color: var(--secondary-color); 
+    }
+
+    /* ==================== Main Content ==================== */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
     .signup-container {
       background: #ffffff;
-      padding: 40px;
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
+      padding: 40px;
       width: 100%;
-      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .signup-container h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+      font-family: 'Times New Roman', serif;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
       color: var(--primary-color);
     }
 
-    .signup-container p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .signup-container a {
-      color: var(--secondary-color);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-    }
-
-    .signup-container a:hover {
-      color: #b08d2b;
-    }
-
-    /* ==================== Form Styles ==================== */
-    .signup-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .signup-form input {
-      padding: 12px;
-      font-size: 1rem;
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      outline: none;
+      font-size: 1rem;
+      font-family: 'Georgia', serif;
       transition: border-color var(--transition-speed);
     }
 
-    .signup-form input:focus {
+    .form-group input:focus {
+      outline: none;
       border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
     }
 
-    .signup-form button {
-      padding: 12px;
-      font-size: 1rem;
+    .password-strength {
+      height: 4px;
+      background: #eee;
+      margin-top: 8px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      width: 0%;
+      background: #e74c3c;
+      transition: width var(--transition-speed), background var(--transition-speed);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px;
       background-color: var(--primary-color);
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 8px;
+      font-size: 1.1rem;
+      font-family: 'Times New Roman', serif;
       cursor: pointer;
       transition: background-color var(--transition-speed), transform 0.2s ease;
     }
 
-    .signup-form button:hover {
+    button[type="submit"]:hover {
       background-color: #1a252f;
       transform: translateY(-2px);
     }
 
-    .signup-form button:active {
+    button[type="submit"]:active {
       transform: translateY(0);
     }
 
-    /* ==================== Dark Mode Styles ==================== */
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .login-link a {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    .login-link a:hover {
+      color: #b08d2b;
+    }
+
+    /* ==================== Footer ==================== */
+    footer {
+      background: linear-gradient(135deg, var(--primary-color), #1a252f);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-top: 4px solid var(--secondary-color);
+    }
+
+    /* ==================== Dark Mode ==================== */
     body.dark-mode {
       background-color: var(--background-dark);
       color: var(--text-dark);
@@ -122,55 +188,179 @@
       color: var(--text-dark);
     }
 
-    body.dark-mode .signup-form input {
+    body.dark-mode .form-group label {
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .form-group input {
       background-color: #333;
       color: var(--text-dark);
-      border-color: #555;
+      border-color: #444;
     }
 
-    body.dark-mode .signup-form input:focus {
-      border-color: var(--secondary-color);
+    body.dark-mode .login-link {
+      color: #aaa;
     }
 
-    body.dark-mode .signup-form button {
-      background-color: var(--secondary-color);
-      color: var(--background-dark);
-    }
-
-    body.dark-mode .signup-form button:hover {
-      background-color: #b08d2b;
+    /* ==================== Responsive ==================== */
+    @media (max-width: 600px) {
+      .signup-container {
+        padding: 30px 20px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Signup Container -->
-  <div class="signup-container">
-    <h2>Sign Up</h2>
-    <p>Create your PoliQuant account to access exclusive insights and reports.</p>
-    <form class="signup-form">
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="login.html">Log In</a></p>
-  </div>
+  <!-- Header -->
+  <header>
+    <img src="https://github.com/qurypt0/PoliQuant/blob/main/Images/loga.png?raw=true" alt="PoliQuant Logo">
+    <h1>PoliQuant</h1>
+  </header>
 
-  <!-- Dark Mode Toggle -->
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <!-- Main Content -->
+  <main>
+    <div class="signup-container">
+      <h2>Create Your Account</h2>
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required minlength="8">
+          <div class="password-strength">
+            <div class="password-strength-bar" id="passwordStrengthBar"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        
+        <button type="submit">Sign Up</button>
+        
+        <div class="login-link">
+          Already have an account? <a href="login.html">Log in</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PoliQuant | <a href="privacy-policy.html" style="color: var(--secondary-color);">Privacy Policy</a></p>
+  </footer>
 
   <!-- JavaScript -->
   <script>
-    // Dark Mode Toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    // Form Submission (Example)
-    const signupForm = document.querySelector('.signup-form');
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Sign-up functionality will be implemented soon!');
+    document.addEventListener('DOMContentLoaded', function() {
+      // Password strength indicator
+      const passwordInput = document.getElementById('password');
+      const strengthBar = document.getElementById('passwordStrengthBar');
+      
+      passwordInput.addEventListener('input', function() {
+        const password = passwordInput.value;
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength += 1;
+        if (password.length >= 12) strength += 1;
+        
+        // Character variety checks
+        if (/[A-Z]/.test(password)) strength += 1;
+        if (/[0-9]/.test(password)) strength += 1;
+        if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+        
+        // Update strength bar
+        const width = (strength / 5) * 100;
+        strengthBar.style.width = width + '%';
+        
+        // Change color based on strength
+        if (strength <= 2) {
+          strengthBar.style.backgroundColor = '#e74c3c'; // Red
+        } else if (strength <= 4) {
+          strengthBar.style.backgroundColor = '#f39c12'; // Orange
+        } else {
+          strengthBar.style.backgroundColor = '#2ecc71'; // Green
+        }
+      });
+      
+      // Form submission
+      const signupForm = document.getElementById('signupForm');
+      
+      signupForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        
+        // Validate passwords match
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return;
+        }
+        
+        // Show loading state
+        const submitButton = signupForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Creating Account...';
+        
+        try {
+          // Send data to server
+          const response = await fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              password
+            })
+          });
+          
+          const data = await response.json();
+          
+          if (response.ok) {
+            // Success - redirect to dashboard
+            window.location.href = '/dashboard.html';
+          } else {
+            // Show error message
+            alert(data.message || 'Signup failed. Please try again.');
+            submitButton.disabled = false;
+            submitButton.textContent = 'Sign Up';
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred during signup. Please try again.');
+          submitButton.disabled = false;
+          submitButton.textContent = 'Sign Up';
+        }
+      });
+      
+      // Dark mode toggle (optional)
+      const darkModeToggle = document.createElement('button');
+      darkModeToggle.className = 'dark-mode-toggle';
+      darkModeToggle.textContent = 'Toggle Dark Mode';
+      darkModeToggle.onclick = function() {
+        document.body.classList.toggle('dark-mode');
+      };
+      document.body.appendChild(darkModeToggle);
     });
   </script>
 </body>
